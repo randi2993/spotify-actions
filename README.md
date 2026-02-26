@@ -14,7 +14,7 @@ Permite gestionar reproducción, autenticación y configuración sin salir de tu
 
 Vista de configuración para vincular tu cuenta de Spotify:
 
-![Interfaz de Configuración](https://github.com/user-attachments/assets/0961d2b3-c446-437b-89d2-286d8cd998bf)
+<img width="250" alt="Spotify Dashboard" src="https://github.com/user-attachments/assets/0961d2b3-c446-437b-89d2-286d8cd998bf" />
 
 ---
 
