@@ -7,7 +7,7 @@ const ACTION_UUID = "com.gilgamesh.spotify-actions.seek-forward";
 export class SpotifySeekForward extends SingletonAction<any> {
 
     override async onWillAppear(ev: WillAppearEvent<any>) {
-        await ev.action.setImage(`imgs/actions/seek+.jpg`);
+        await ev.action.setImage(`imgs/actions/seek+.png`);
     }
 
     override async onKeyDown(ev: KeyDownEvent<any>) {
@@ -53,7 +53,7 @@ export class SpotifySeekForward extends SingletonAction<any> {
                 refreshToken
             });
 
-            await (ev.action as any).setImage("imgs/actions/seek+.jpg");
+            await (ev.action as any).setImage("imgs/actions/seek+.png");
             await (ev.action as any).showOk?.();
         } catch (e: any) {
             await streamDeck.ui.sendToPropertyInspector({

@@ -34,7 +34,7 @@ export class SpotifyLikeToggle extends SingletonAction<any> {
             if (!trackId) {
                 if (this.currentTrackId !== "") {
                     this.currentTrackId = "";
-                    await ev.action.setImage("imgs/actions/dislike.jpg");
+                    await ev.action.setImage("imgs/actions/dislike.png");
                 }
                 return;
             }
@@ -44,14 +44,14 @@ export class SpotifyLikeToggle extends SingletonAction<any> {
                 const liked = await isTrackSaved(accessToken, trackId);
                 this.currentTrackId = trackId;
                 this.isCurrentlyLiked = liked;
-                await ev.action.setImage(liked ? "imgs/actions/like.jpg" : "imgs/actions/dislike.jpg");
+                await ev.action.setImage(liked ? "imgs/actions/like.png" : "imgs/actions/dislike.png");
             } else {
                 // Opcional: Verificar si el estado de Like cambió en la misma canción (vía móvil)
                 // Para no saturar la API, podrías hacer esto solo cada 2 ciclos
                 const liked = await isTrackSaved(accessToken, trackId);
                 if (liked !== this.isCurrentlyLiked) {
                     this.isCurrentlyLiked = liked;
-                    await ev.action.setImage(liked ? "imgs/actions/like.jpg" : "imgs/actions/dislike.jpg");
+                    await ev.action.setImage(liked ? "imgs/actions/like.png" : "imgs/actions/dislike.png");
                 }
             }
         } catch (e) {
@@ -74,11 +74,11 @@ export class SpotifyLikeToggle extends SingletonAction<any> {
             if (this.isCurrentlyLiked) {
                 await removeTrack(accessToken, trackId);
                 this.isCurrentlyLiked = false;
-                await ev.action.setImage("imgs/actions/dislike.jpg");
+                await ev.action.setImage("imgs/actions/dislike.png");
             } else {
                 await saveTrack(accessToken, trackId);
                 this.isCurrentlyLiked = true;
-                await ev.action.setImage("imgs/actions/like.jpg");
+                await ev.action.setImage("imgs/actions/like.png");
             }
         } catch (e: any) {
             streamDeck.logger.error(String(e));

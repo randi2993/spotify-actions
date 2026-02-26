@@ -18,7 +18,7 @@ export class SpotifyNext extends SingletonAction<any> {
             // const isPlaying = !!player?.is_playing;
 
             // Establece el icono/texto inicial
-            await ev.action.setImage("imgs/actions/next.jpg");
+            await ev.action.setImage("imgs/actions/next.png");
         } catch (e) {
             // Si no hay auth o hay error, ponemos un estado neutro
             await ev.action.setImage("imgs/actions/next.png");
@@ -34,7 +34,7 @@ export class SpotifyNext extends SingletonAction<any> {
 
             await next(accessToken);
 
-            await ev.action.setImage("imgs/actions/next.jpg");
+            await ev.action.setImage("imgs/actions/next.png");
             // await (ev.action as any).showOk?.();
         } catch (e: any) {
             if (String(e?.message) === "NOT_AUTH") {
@@ -60,7 +60,7 @@ export class SpotifyNext extends SingletonAction<any> {
                 refreshToken
             });
 
-            await (ev.action as any).setImage("imgs/actions/next.jpg");
+            await (ev.action as any).setImage("imgs/actions/next.png");
             await (ev.action as any).showOk?.();
         } catch (e: any) {
             await streamDeck.ui.sendToPropertyInspector({

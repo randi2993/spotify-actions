@@ -19,7 +19,7 @@ export class SpotifyPlayPause extends SingletonAction<any> {
 
             // Establece el icono/texto inicial
             await (ev.action as any).setTitle?.("");
-            await ev.action.setImage(isPlaying ? "imgs/actions/pause.jpg" : "imgs/actions/play.jpg");
+            await ev.action.setImage(isPlaying ? "imgs/actions/pause.png" : "imgs/actions/play.png");
         } catch (e) {
             // Si no hay auth o hay error, ponemos un estado neutro
             await ev.action.setImage("imgs/actions/play-pause.png");
@@ -44,7 +44,7 @@ export class SpotifyPlayPause extends SingletonAction<any> {
             else await play(accessToken);
 
             await (ev.action as any).setTitle?.("");
-            await ev.action.setImage(isPlaying ? "imgs/actions/play.jpg" : "imgs/actions/pause.jpg");
+            await ev.action.setImage(isPlaying ? "imgs/actions/play.png" : "imgs/actions/pause.png");
             // await (ev.action as any).showOk?.();
         } catch (e: any) {
             if (String(e?.message) === "NOT_AUTH") {

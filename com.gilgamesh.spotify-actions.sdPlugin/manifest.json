@@ -1,124 +1,156 @@
 {
-  "Name": "SpotifyActions",
-  "Version": "0.1.0.0",
-  "Author": "Gilgamesh",
-  "UUID": "com.gilgamesh.spotify-actions",
-  "Actions": [
-    {
-      "Icon": "imgs/actions/spotify",
-      "Name": "Open",
-      "States": [
-        { "Image": "imgs/actions/play-pause", "TitleAlignment": "middle" }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Open Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.open",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/play-pause",
-      "Name": "Play/Pause",
-      "States": [
-        { "Image": "imgs/actions/play-pause", "TitleAlignment": "middle" }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Play/Pause Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.playpause",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/like-dislike",
-      "Name": "Like/Dislike",
-      "States": [
-        { "Image": "imgs/actions/like-dislike", "TitleAlignment": "middle" }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Toggle Like/Dislike Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.like",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "UUID": "com.gilgamesh.spotify-actions.volume",
-      "Name": "Spotify Dial Volume",
-      "Icon": "imgs/actions/volume",
-      "Controllers": ["Encoder"],
-      "States": [
-        {
-          "Image": "imgs/actions/volume"
-        }
-      ]
-    },
-    {
-      "Icon": "imgs/actions/next",
-      "Name": "Next",
-      "States": [{ "Image": "imgs/actions/next", "TitleAlignment": "middle" }],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Next song Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.next",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/previous",
-      "Name": "Previous",
-      "States": [
-        { "Image": "imgs/actions/previous", "TitleAlignment": "middle" }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Previous song Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.previous",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/seek-forward",
-      "Name": "Seek Forward",
-      "States": [{ "Image": "imgs/actions/seek+", "TitleAlignment": "middle" }],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Seek Forward song Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.seek-forward",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/seek-backward",
-      "Name": "Seek Backward",
-      "States": [{ "Image": "imgs/actions/seek-", "TitleAlignment": "middle" }],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Seek Backward song Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.seek-backward",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    },
-    {
-      "Icon": "imgs/actions/repeat",
-      "Name": "Repeat",
-      "States": [
-        { "Image": "imgs/actions/repeat", "TitleAlignment": "middle" }
-      ],
-      "SupportedInMultiActions": true,
-      "Tooltip": "Repeat song Spotify",
-      "UUID": "com.gilgamesh.spotify-actions.repeat",
-      "PropertyInspectorPath": "ui/spotify/pi.html"
-    }
-  ],
-  "Category": "SpotifyActions",
-  "CategoryIcon": "imgs/actions/spotify",
-  "CodePath": "bin/plugin.js",
-  "Description": "Spotify Actions",
-  "Icon": "imgs/actions/spotify",
-  "SDKVersion": 3,
-  "Software": {
-    "MinimumVersion": "6.9"
-  },
-  "OS": [
-    {
-      "Platform": "mac",
-      "MinimumVersion": "12"
-    },
-    {
-      "Platform": "windows",
-      "MinimumVersion": "10"
-    }
-  ],
-  "Nodejs": {
-    "Version": "20",
-    "Debug": "enabled"
-  }
+	"Name": "SpotifyActions",
+	"Version": "0.1.0.0",
+	"Author": "Gilgamesh",
+	"UUID": "com.gilgamesh.spotify-actions",
+	"Actions": [
+		{
+			"Icon": "imgs/actions/spotify",
+			"Name": "Open",
+			"States": [
+				{
+					"Image": "imgs/actions/play-pause",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Open Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.open",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/play-pause",
+			"Name": "Play/Pause",
+			"States": [
+				{
+					"Image": "imgs/actions/play-pause",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Play/Pause Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.playpause",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/like-dislike",
+			"Name": "Like/Dislike",
+			"States": [
+				{
+					"Image": "imgs/actions/like-dislike",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Toggle Like/Dislike Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.like",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"UUID": "com.gilgamesh.spotify-actions.volume",
+			"Name": "Spotify Dial Volume",
+			"Icon": "imgs/actions/volume",
+			"Controllers": [
+				"Encoder"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/volume"
+				}
+			]
+		},
+		{
+			"Icon": "imgs/actions/next",
+			"Name": "Next",
+			"States": [
+				{
+					"Image": "imgs/actions/next",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Next song Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.next",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/previous",
+			"Name": "Previous",
+			"States": [
+				{
+					"Image": "imgs/actions/previous",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Previous song Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.previous",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/seek+",
+			"Name": "Seek Forward",
+			"States": [
+				{
+					"Image": "imgs/actions/seek+",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Seek Forward song Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.seek-forward",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/seek-",
+			"Name": "Seek Backward",
+			"States": [
+				{
+					"Image": "imgs/actions/seek-",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Seek Backward song Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.seek-backward",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		},
+		{
+			"Icon": "imgs/actions/repeat",
+			"Name": "Repeat",
+			"States": [
+				{
+					"Image": "imgs/actions/repeat",
+					"TitleAlignment": "middle"
+				}
+			],
+			"SupportedInMultiActions": true,
+			"Tooltip": "Repeat song Spotify",
+			"UUID": "com.gilgamesh.spotify-actions.repeat",
+			"PropertyInspectorPath": "ui/spotify/pi.html"
+		}
+	],
+	"Category": "SpotifyActions",
+	"CategoryIcon": "imgs/actions/spotify",
+	"CodePath": "bin/plugin.js",
+	"Description": "Spotify Actions",
+	"Icon": "imgs/actions/spotify",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "6.9"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	}
 }

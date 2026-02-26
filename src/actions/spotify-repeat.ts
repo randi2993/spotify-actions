@@ -15,7 +15,7 @@ export class SpotifyRepeat extends SingletonAction<any> {
             const state = player?.repeat_state ?? "off";
             await this.updateIcon(ev.action, state);
         } catch (e) {
-            await ev.action.setImage("imgs/actions/repeat.jpg");
+            await ev.action.setImage("imgs/actions/repeat.png");
         }
     }
 
@@ -49,10 +49,10 @@ export class SpotifyRepeat extends SingletonAction<any> {
      * Selecciona el archivo de imagen correcto según el estado
      */
     private async updateIcon(action: any, state: string) {
-        let image = "repeat.jpg"; // Estado 'off' por defecto
+        let image = "repeat.png"; // Estado 'off' por defecto
 
-        if (state === "context") image = "repeat-.jpg";
-        if (state === "track") image = "repeat-1.jpg";
+        if (state === "context") image = "repeat-.png";
+        if (state === "track") image = "repeat-1.png";
 
         await action.setImage(`imgs/actions/${image}`);
     }
@@ -79,7 +79,7 @@ export class SpotifyRepeat extends SingletonAction<any> {
                 refreshToken
             });
 
-            await (ev.action as any).setImage("imgs/actions/previous.jpg");
+            await (ev.action as any).setImage("imgs/actions/previous.png");
             await (ev.action as any).showOk?.();
         } catch (e: any) {
             await streamDeck.ui.sendToPropertyInspector({

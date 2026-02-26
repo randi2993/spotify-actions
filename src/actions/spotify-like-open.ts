@@ -20,16 +20,16 @@ export class SpotifyOpen extends SingletonAction<any> {
 
             if (!trackId) {
                 // Si no hay nada sonando, ponemos el icono neutro o dislike
-                await ev.action.setImage("imgs/actions/dislike.jpg");
+                await ev.action.setImage("imgs/actions/dislike.png");
                 return;
             }
 
             const liked = await isTrackSaved(accessToken, trackId);
             await (ev.action as any).setTitle?.("");
-            await ev.action.setImage(liked ? "imgs/actions/like.jpg" : "imgs/actions/dislike.jpg");
+            await ev.action.setImage(liked ? "imgs/actions/like.png" : "imgs/actions/dislike.png");
         } catch (e) {
             // Estado por defecto si no hay auth o hay error
-            await ev.action.setImage("imgs/actions/dislike.jpg");
+            await ev.action.setImage("imgs/actions/dislike.png");
         }
     }
 
@@ -51,11 +51,11 @@ export class SpotifyOpen extends SingletonAction<any> {
             if (liked) {
                 await removeTrack(accessToken, trackId);
                 await (ev.action as any).setTitle?.("");
-                await ev.action.setImage("imgs/actions/dislike.jpg");
+                await ev.action.setImage("imgs/actions/dislike.png");
             } else {
                 await saveTrack(accessToken, trackId);
                 await (ev.action as any).setTitle?.("");
-                await ev.action.setImage("imgs/actions/like.jpg");
+                await ev.action.setImage("imgs/actions/like.png");
             }
         } catch (e: any) {
             if (String(e?.message) === "NOT_AUTH") {
