@@ -2,26 +2,136 @@
 
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](https://github.com/randi2993/spotify-actions/blob/main/LICENSE)
 [![Platform](https://img.shields.io/badge/platform-Stream%20Deck-blue?style=flat-square)](https://www.elgato.com/es/stream-deck)
+[![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Elgato SDK](https://img.shields.io/badge/Stream_Deck_SDK-0078D4?style=flat-square)](https://docs.elgato.com/)
 
-Plugin para el control total de Spotify desde tu **Elgato Stream Deck**. Permite gestionar la reproducción y autenticación de forma integrada sin salir de tu flujo de trabajo.
+Plugin para controlar **Spotify** directamente desde tu **Elgato Stream Deck**.  
+Permite gestionar reproducción, autenticación y configuración sin salir de tu flujo de trabajo.
 
-## 📸 Configuración del Plugin
+---
 
-La siguiente imagen muestra la interfaz de configuración requerida para vincular tu cuenta de Spotify con el dispositivo:
+## 📸 Interfaz del Plugin
 
-![Interfaz de Configuración de Spotify Actions](https://github.com/user-attachments/assets/0961d2b3-c446-437b-89d2-286d8cd998bf)
+Vista de configuración para vincular tu cuenta de Spotify:
+
+![Interfaz de Configuración](https://github.com/user-attachments/assets/0961d2b3-c446-437b-89d2-286d8cd998bf)
+
+---
 
 ## ✨ Funcionalidades
 
-* **Autenticación Directa:** Incluye un flujo de OAuth mediante el botón "Authorize" para simplificar la obtención del token de acceso.
-* **Gestión de Credenciales:** Campos configurables para `Client ID` y `Client Secret` obtenidos desde el Dashboard de Spotify.
-* **Control de Estado:** El plugin detecta si Spotify está cerrado y ofrece abrirlo automáticamente antes de ejecutar una acción.
-* **Limpieza de Datos:** Botón "Clean All" para eliminar rápidamente las credenciales almacenadas.
+- 🔐 **Autenticación OAuth integrada** mediante botón *Authorize*
+- 🎛 **Control de reproducción**
+- 🧾 **Gestión de Client ID y Client Secret**
+- 🚀 **Apertura automática de Spotify si está cerrado**
+- 🧹 **Limpieza rápida de credenciales (Clean All)**
 
-## ⚙️ Configuración Requerida
+---
 
-Para que el plugin funcione, debes configurar tu aplicación en el **Spotify Developer Dashboard** con los siguientes datos:
+# ⚙️ Configuración en Spotify Developer Dashboard
 
-1. **Redirect URI:** `http://127.0.0.1:4399/callback`
-2. **Credenciales:** Introduce tu `Client ID` y `Client Secret` en la interfaz del plugin dentro del software de Stream Deck.
-3. **Autorización:** Haz clic en el botón verde **Authorize (Spotify Login)** para completar la vinculación.
+Para que el plugin funcione, debes registrar una aplicación en Spotify:
+
+### 1️⃣ Crear o acceder a una aplicación
+
+Ir a:  
+👉 https://developer.spotify.com/dashboard
+
+Si no tienes una aplicación creada:
+- Haz clic en **Create App**
+- Nombre sugerido: `Spotify`
+- Descripción sugerida: `Spotify para Elgato Stream Deck`
+
+### 2️⃣ Configurar Redirect URI
+
+En la configuración de la aplicación agrega: `http://127.0.0.1:4399/callback`
+
+Guarda los cambios.
+
+### 3️⃣ Obtener credenciales
+
+En el dashboard verás:
+
+- **Client ID**
+- **Client Secret**
+
+<img width="400" alt="Spotify Dashboard" src="https://github.com/user-attachments/assets/1353b494-936b-4023-972d-202a2f0d4308" />
+
+Introduce esos valores dentro del plugin en Stream Deck.
+
+### 4️⃣ Autorizar
+
+Dentro del software de Stream Deck:
+
+- Introduce `Client ID`
+- Introduce `Client Secret`
+- Haz clic en **Authorize (Spotify Login)**
+
+---
+
+# 📥 Instalación
+
+## 🔹 Opción A — Desde Releases (Recomendado)
+
+1. Ir a la sección **Releases** del repositorio.
+2. Descargar el archivo `.streamDeckPlugin`.
+3. Hacer doble clic para instalarlo.
+
+El archivo `.streamDeckPlugin` funciona como instalador oficial para Stream Deck.
+
+---
+
+## 🔹 Opción B — Compilar desde el repositorio
+
+### Requisitos
+
+- Stream Deck instalado
+- Node.js
+- Stream Deck CLI (`streamdeck`)
+
+---
+
+### 1️⃣ Clonar el repositorio
+
+```bash
+git clone https://github.com/randi2993/spotify-actions.git
+cd spotify-actions
+```
+
+### 2️⃣ Instalar dependencias
+```bash
+npm ci
+# o
+npm install
+```
+
+### 3️⃣ Compilar el plugin
+```bash
+npm run build
+```
+Esto generará el bundle del plugin dentro de: com.gilgamesh.spotify-actions.sdPlugin
+
+### 4️⃣ Validar el plugin
+```bash
+streamdeck validate com.gilgamesh.spotify-actions.sdPlugin
+```
+
+### 5️⃣ Empaquetar
+```bash
+streamdeck pack com.gilgamesh.spotify-actions.sdPlugin
+```
+Esto generará el archivo: com.gilgamesh.spotify-actions.streamDeckPlugin
+
+### 6️⃣ Instalar
+
+Haz doble clic en el archivo generado y confirma la instalación en Stream Deck.
+
+🛠 Desarrollo
+
+Para desarrollo con recarga automática:
+
+```bash
+npm run dev
+# o
+npm run watch
+```
