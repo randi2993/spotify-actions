@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Spotify Actions</title>
+    <link rel="stylesheet" href="sdpi.css" />
+    <style>
+      .button-group {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+
+      .button-group button {
+        flex: 1; /* Esto hace que ambos midan lo mismo (50% cada uno) */
+        padding: 8px;
+      }
+
+      /* El botón de Authorize que es más importante puede ser más grande */
+      #authorize {
+        background-color: #1db954; /* Verde Spotify */
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+      }
+
+      .row {
+        margin: 10px 0;
+      }
+      .row-flex {
+        display: flex; /* Activa el modo horizontal */
+        gap: 10px; /* Crea espacio entre los botones */
+        margin: 10px 0; /* Mantiene el margen igual que tus otras filas */
+      }
+
+      /* Opcional: Si quieres que midan exactamente lo mismo cada uno */
+      .row-flex button {
+        flex: 1;
+      }
+      .hint {
+        font-size: 12px;
+        opacity: 0.8;
+        line-height: 1.35;
+      }
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+      input {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sdpi-wrapper">
+      <h2>Spotify Actions</h2>
+
+      <div class="row">
+        <div class="hint">
+          Callback (Redirect URI) que debes poner en Spotify Developer
+          Dashboard:
+        </div>
+        <div class="mono" id="callback"></div>
+      </div>
+
+      <div class="row">
+        <label>Client ID ></label>
+        <input id="clientId" placeholder="Pega tu Client ID" disabled />
+      </div>
+
+      <div class="row">
+        <label>Client Secret ></label>
+        <input
+          id="clientSecret"
+          type="password"
+          placeholder="Pega tu Client Secret"
+          disabled
+        />
+      </div>
+
+      <div class="row">
+        <label>Refresh Token</label>
+        <input
+          id="refreshToken"
+          type="password"
+          placeholder="Se llenará al autorizar"
+          disabled
+        />
+        <div class="hint">Pulsa Authorize para generarlo automáticamente.</div>
+      </div>
+
+      <div class="row">
+        <div
+          id="error-display"
+          style="
+            color: #ff4d4d;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid #ff4d4d;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 15px;
+            margin-top: 10px;
+            display: none;
+            white-space: pre-wrap;
+          "
+          class="mono"
+        ></div>
+      </div>
+
+      <div class="row">
+        <div
+          id="ok-display"
+          style="
+            color: #25800e;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid #09c112a9;
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 15px;
+            margin-top: 10px;
+            display: none;
+            white-space: pre-wrap;
+            font-weight: bold;
+          "
+          class="mono"
+        ></div>
+      </div>
+
+      <div class="button-group">
+        <button id="edit">Edit</button>
+        <button id="clean">Clean All</button>
+      </div>
+
+      <div class="row">
+        <button id="authorize">Authorize (Spotify Login)</button>
+      </div>
+
+      <div class="row hint">
+        Si Spotify está cerrado, las acciones lo abrirán antes de ejecutar.
+      </div>
+    </div>
+
+    <script src="pi.js"></script>
+  </body>
+</html>

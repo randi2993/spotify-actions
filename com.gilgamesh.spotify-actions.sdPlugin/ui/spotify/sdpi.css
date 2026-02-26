@@ -1,0 +1,156 @@
+/* Minimal SDPI-like styling (Elgato-ish)
+   Works without sdpi-components.js
+*/
+
+:root {
+  --bg: #1f1f1f;
+  --panel: #262626;
+  --text: #e8e8e8;
+  --muted: #b7b7b7;
+  --border: rgba(255, 255, 255, 0.12);
+  --focus: rgba(0, 169, 255, 0.55);
+  --btn: #3a3a3a;
+  --btn-hover: #444;
+  --btn-active: #2f2f2f;
+  --danger: #ff4d4d;
+  --radius: 8px;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.sdpi-wrapper {
+  padding: 12px 12px 18px;
+}
+
+.sdpi-heading {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 2px 0 12px;
+  color: var(--text);
+}
+
+.sdpi-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sdpi-item:last-child {
+  border-bottom: none;
+}
+
+.sdpi-item-label {
+  color: var(--muted);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.sdpi-item-value {
+  width: 100%;
+}
+
+input.sdpi-item-value,
+textarea.sdpi-item-value,
+select.sdpi-item-value,
+.sdpi-item-value input,
+.sdpi-item-value textarea,
+.sdpi-item-value select {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input.sdpi-item-value::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+input.sdpi-item-value:focus,
+textarea.sdpi-item-value:focus,
+select.sdpi-item-value:focus,
+.sdpi-item-value input:focus,
+.sdpi-item-value textarea:focus,
+.sdpi-item-value select:focus {
+  border-color: rgba(0, 169, 255, 0.85);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+small,
+.sdpi-hint {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+}
+
+.sdpi-button,
+button.sdpi-button {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--btn);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.12s ease, transform 0.05s ease;
+}
+
+.sdpi-button:hover {
+  background: var(--btn-hover);
+}
+
+.sdpi-button:active {
+  background: var(--btn-active);
+  transform: translateY(1px);
+}
+
+.sdpi-button--danger {
+  border-color: rgba(255, 77, 77, 0.35);
+  background: rgba(255, 77, 77, 0.12);
+}
+
+.sdpi-button--danger:hover {
+  background: rgba(255, 77, 77, 0.18);
+}
+
+.sdpi-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 10px 0;
+}
+
+.sdpi-note {
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.35;
+}
+
+/* Mobile-like narrow layout */
+@media (max-width: 360px) {
+  .sdpi-item {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .sdpi-item-label {
+    margin-bottom: 2px;
+  }
+}
